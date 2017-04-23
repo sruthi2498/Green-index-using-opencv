@@ -1,9 +1,10 @@
-
+from __future__ import division
 import cv
 import cv2
 import sys
 import numpy as np
 import copy
+
 #sys.path.append('/usr/local/lib/python2.7/site-packages')
 
 BLUE = [255,0,0]
@@ -24,6 +25,7 @@ print "area : ",area
 
 
 #Total number of pixels
+Total_Number_Of_Pixels=image.size
 print "Total number of pixels : ",image.size
 
 #making a border
@@ -45,7 +47,11 @@ cv2.waitKey(0)
 dst = cv2.inRange(image, GREEN_MIN, GREEN_MAX)
 cv2.imshow("new image",dst);
 cv2.waitKey(0)
-no_green = cv2.countNonZero(dst)
+Number_Of_Green_Pixels = cv2.countNonZero(dst)
 
-print('The number of green pixels is: ' + str(no_green))
+print('The number of green pixels is: ' + str(Number_Of_Green_Pixels))
+
+Index=Number_Of_Green_Pixels/Total_Number_Of_Pixels
+print "Index: ",Index
+
 
