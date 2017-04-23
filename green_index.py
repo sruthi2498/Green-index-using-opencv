@@ -24,9 +24,7 @@ area=size[0]*size[1]
 print "area : ",area
 
 
-#Total number of pixels
-Total_Number_Of_Pixels=image.size
-print "Total number of pixels : ",image.size
+
 
 #making a border
 image= cv2.copyMakeBorder(image,10,10,10,10,cv2.BORDER_CONSTANT,value=BLUE)
@@ -47,11 +45,15 @@ cv2.waitKey(0)
 dst = cv2.inRange(image, GREEN_MIN, GREEN_MAX)
 cv2.imshow("new image",dst);
 cv2.waitKey(0)
+
+#Total number of pixels
+Total_Number_Of_Pixels=dst.size
+print "Total number of pixels : ",dst.size
+
 Number_Of_Green_Pixels = cv2.countNonZero(dst)
 
 print('The number of green pixels is: ' + str(Number_Of_Green_Pixels))
 
 Index=Number_Of_Green_Pixels/Total_Number_Of_Pixels
 print "Index: ",Index
-
 
